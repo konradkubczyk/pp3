@@ -25,9 +25,6 @@ public class Variables {
         System.out.print("The number of minutes is: ");
         System.out.println(hours * 60 + minutes);
 
-        // Declare and assign value to a variable "pi" of type double in one line
-        double pi = 3.14159;
-
         // Example of a mistake caused by dividing an integer by an integer resulting in unexpected result stored in a variable of type double
         double oneThird = 1 / 3; // Integers are divided first, then the result is converted to double, causing rounding down to 0
         System.out.println("1 / 3 ≠ " + oneThird); // [OUTPUT] 1 / 3 = 0.0
