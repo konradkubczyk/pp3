@@ -1,4 +1,4 @@
-class TemperatureUnitConverter {
+public class TemperatureUnitConverter {
 
     public double celsiusToKelvin(double celsius) {
         return celsius + 273.15;
