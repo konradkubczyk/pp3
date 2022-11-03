@@ -20,7 +20,7 @@ public class Person {
     }
 
     public double calculateBMI() {
-        return weight / Math.pow(height, 2);
+        return weight / Math.pow(height / 100, 2);
     }
 
     public void displayRecord() {
@@ -42,7 +42,7 @@ public class Person {
 
     public static void main(String[] args) {
 
-        Person person1 = new Person("John Doe", 1000, 30);
+        Person person1 = new Person("John Doe", 100, 130);
         person1.displayRecord();
 
         System.out.println();
