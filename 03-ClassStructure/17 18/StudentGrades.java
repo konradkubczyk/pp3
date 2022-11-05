@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Random;
 
 public class StudentGrades {
 
@@ -8,6 +9,17 @@ public class StudentGrades {
     StudentGrades(String name, double[] grades) {
         this.studentName = name;
         this.grades = grades;
+    }
+
+    StudentGrades(String name, int numberOfGrades) {
+        this.studentName = name;
+        this.grades = new double[numberOfGrades];
+
+        for (int i = 0; i < this.grades.length; i++) {
+            int randomNumber = new Random().nextInt(31) + 20;
+
+            this.grades[i] = (randomNumber - randomNumber % 5) / 10.0;
+        }
     }
 
     public double getLowestGrade() {
@@ -54,9 +66,15 @@ public class StudentGrades {
     }
 
     public void displayStudentRecord() {
+        String[] gradesStrings = new String[this.grades.length];
+
+        for (int i = 0; i < this.grades.length; i++) {
+            gradesStrings[i] = String.valueOf(this.grades[i]);
+        }
+
         System.out.println(
             "Student name: " + this.studentName +
-            "\nGrades: " + Arrays.toString(this.grades) +
+            "\nGrades: " + String.join(", ", gradesStrings) +
             "\nNumber of grades: " + this.getNumberOfGrades() +
             "\nLowest grade: " + this.getLowestGrade() +
             "\nHighest grade: " + this.getHighestGrade() +
@@ -72,5 +90,11 @@ public class StudentGrades {
         student1.displayStudentRecord();
         System.out.println();
         student2.displayStudentRecord();
+        
+        System.out.println();
+
+        StudentGrades student3 = new StudentGrades("Random", 10);
+
+        student3.displayStudentRecord();        
     }
 }
