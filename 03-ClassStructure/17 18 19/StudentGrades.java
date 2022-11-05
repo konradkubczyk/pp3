@@ -1,5 +1,8 @@
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
+
+import javax.imageio.plugins.tiff.ExifGPSTagSet;
 
 public class StudentGrades {
 
@@ -20,6 +23,36 @@ public class StudentGrades {
 
             this.grades[i] = (randomNumber - randomNumber % 5) / 10.0;
         }
+    }
+
+    StudentGrades(String name) {
+        this.studentName = name;
+        this.grades = new double[] {};
+
+        Scanner scanner = new Scanner(System.in);
+        String userInput;
+        double gradeInput;
+
+        do {
+            System.out.print("Input a grade or click Enter to end inputting: ");
+
+            userInput = scanner.nextLine();
+
+            try {
+                gradeInput = Double.parseDouble(userInput);
+                this.grades = Arrays.copyOf(grades, grades.length + 1);
+                this.grades[this.grades.length - 1] = gradeInput;
+            }
+            catch (Exception e) {
+                if (!"".equals(userInput)) {
+                    System.out.println("Incorrect input, exiting...");
+                    System.exit(1);
+                }
+            }
+
+        } while (!"".equals(userInput));
+
+        scanner.close();
     }
 
     public double getLowestGrade() {
@@ -95,6 +128,12 @@ public class StudentGrades {
 
         StudentGrades student3 = new StudentGrades("Random", 10);
 
-        student3.displayStudentRecord();        
+        student3.displayStudentRecord();
+
+        System.out.println();
+
+        StudentGrades student4 = new StudentGrades("Custom");
+
+        student4.displayStudentRecord();
     }
 }
