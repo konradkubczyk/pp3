@@ -2,6 +2,8 @@ public class Clock {
     
     int hour;
     int minute;
+    int alarmHour;
+    int alarmMinute;
 
     Clock() {
         this.setClock();
@@ -12,17 +14,10 @@ public class Clock {
     }
 
     public void setClock(int hour, int minute) {
-        if (hour >= 0 && hour <= 23) {
-            this.hour = hour;
-        } else {
-            throw new IllegalArgumentException("Hour must be between 0 and 23.");
-        }
+        this.validateTime(hour, minute);
 
-        if (minute >= 0 && minute <= 59) {
-            this.minute = minute;
-        } else {
-            throw new IllegalArgumentException("Minute must be between 0 and 59.");
-        }
+        this.hour = hour;
+        this.minute = minute;
     }
 
     public void setClock() {
@@ -49,10 +44,34 @@ public class Clock {
         } else {
             this.setClock();
         }
+
+        if (this.hour == this.alarmHour && this.minute == this.alarmMinute) {
+            this.runAlarm();
+        }
+    }
+
+    private void validateTime(int hour, int minute) {
+        if (hour < 0 || hour > 23) {
+            throw new IllegalArgumentException("Hour must be between 0 and 23.");
+        } else if (minute < 0 || minute > 59) {
+            throw new IllegalArgumentException("Minute must be between 0 and 59.");
+        }
+    }
+
+    public void setAlarm(int hour, int minute) {
+        this.validateTime(hour, minute);
+
+        this.alarmHour = hour;
+        this.alarmMinute = minute;
+    }
+
+    public void runAlarm() {
+        System.out.println("beep-beep-beep-beep !!");
     }
 
     public static void main(String[] args) {
         Clock clock = new Clock(12, 47);
+        clock.setAlarm(23, 59);
         clock.displayTime();
         clock.setClock(18, 14);
         clock.displayTime();
