@@ -2,8 +2,6 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-import javax.imageio.plugins.tiff.ExifGPSTagSet;
-
 public class StudentGrades {
 
     String studentName;
@@ -101,8 +99,13 @@ public class StudentGrades {
     public void displayStudentRecord() {
         String[] gradesStrings = new String[this.grades.length];
 
-        for (int i = 0; i < this.grades.length; i++) {
-            gradesStrings[i] = String.valueOf(this.grades[i]);
+        if (this.grades.length > 0) {
+            for (int i = 0; i < this.grades.length; i++) {
+                gradesStrings[i] = String.valueOf(this.grades[i]);
+            }
+        } else {
+            System.out.println("Stydent " + studentName + " has no grades.");
+            return;
         }
 
         System.out.println(
@@ -133,6 +136,8 @@ public class StudentGrades {
         System.out.println();
 
         StudentGrades student4 = new StudentGrades("Custom");
+
+        System.out.println();
 
         student4.displayStudentRecord();
     }
