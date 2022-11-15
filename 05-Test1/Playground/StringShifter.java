@@ -47,8 +47,8 @@ public class StringShifter {
     public static String getAlphabet() {
         String alphabet = "";
 
-        for (int c = 'a'; c <= 'z'; c++) {
-            alphabet += Character.toString(c);
+        for (char c = 'a'; c <= 'z'; c++) {
+            alphabet += c;
         }
 
         return alphabet;
