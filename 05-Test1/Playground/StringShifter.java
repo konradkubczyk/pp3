@@ -1,5 +1,19 @@
 public class StringShifter {
 
+    private static int classInstancesCounter;
+
+    public StringShifter() {
+        classInstancesCounter++;
+    }
+
+    public int getNumberOfInstances() {
+        return StringShifter.classInstancesCounter;
+    }
+
+    public String toString() {
+        return "StringShifter has " + this.getNumberOfInstances() + " instance(s)";
+    }
+
     public static char[] stringToArray(String string) {
 
         char[] charArray = new char[string.length()];
@@ -28,5 +42,26 @@ public class StringShifter {
         }
 
         return true;
+    }
+
+    public static String getAlphabet() {
+        String alphabet = "";
+
+        for (int c = 'a'; c <= 'z'; c++) {
+            alphabet += Character.toString(c);
+        }
+
+        return alphabet;
+    }
+
+    public static String getAlphabet(boolean uppercase) {
+        
+        String alphabet = StringShifter.getAlphabet();
+
+        if (uppercase) {
+            alphabet = alphabet.toUpperCase();
+        }
+
+        return alphabet;
     }
 }
