@@ -1,4 +1,4 @@
-public class MyArrays {
+public class MyArraysMock {
     public static int even(int[] array) {
         int evenCount = 0;
         
@@ -24,7 +24,7 @@ public class MyArrays {
     }
 
     public static void main(String[] args) {
-        System.out.println(MyArrays.even(new int[] {2,-6,5,8}));
-        System.out.println(MyArrays.positiveOdd(new int[] {3,2,-5,4,1,-7}));
+        System.out.println(MyArraysMock.even(new int[] {2,-6,5,8}));
+        System.out.println(MyArraysMock.positiveOdd(new int[] {3,2,-5,4,1,-7}));
     }
 }
