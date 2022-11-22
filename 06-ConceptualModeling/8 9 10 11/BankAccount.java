@@ -2,8 +2,8 @@ public class BankAccount {
     private String accountNumber;
     private String accountHolderName;
     private String accountHolderSurname;
-    private double balance = 0.0;
-    private static double withdrawLimit = 500.0;
+    private int balance = 0;
+    private static int withdrawLimit = 50000;
 
     public BankAccount(String accountNumber, String accountHolderName, String accountHolderSurname) {
         this.accountNumber = accountNumber;
@@ -35,23 +35,23 @@ public class BankAccount {
         this.accountHolderSurname = accountHolderSurname;
     }
 
-    public double getBalance() {
+    public int getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(int balance) {
         this.balance = balance;
     }
 
-    public static double getWithdrawLimit() {
+    public static int getWithdrawLimit() {
         return withdrawLimit;
     }
 
-    public void deposit(double amount) {
+    public void deposit(int amount) {
         balance += amount;
     }
 
-    public void withdraw(double amount) {
+    public void withdraw(int amount) {
         if (amount > withdrawLimit) {
             throw new IllegalArgumentException("Amount exceeds withdraw limit");
         } else if (amount > balance) {
@@ -62,10 +62,10 @@ public class BankAccount {
     }
 
     public String toString() {
-        return "Account number: " + accountNumber + "\nAccount holder: " + accountHolderName + " " + accountHolderSurname + "\nBalance: " + balance;
+        return "Account number: " + accountNumber + "\nAccount holder: " + accountHolderName + " " + accountHolderSurname + "\nBalance: " + balance / 100 + "." + balance % 100;
     }
 
-    public static void setWithdrawLimit(double withdrawLimit) {
+    public static void setWithdrawLimit(int withdrawLimit) {
         BankAccount.withdrawLimit = withdrawLimit;
     }
 
@@ -76,11 +76,11 @@ public class BankAccount {
             "Doe"
         );
         System.out.println(bankAccount);
-        bankAccount.deposit(800.0);
+        bankAccount.deposit(80000);
         System.out.println("\n" + bankAccount);
-        bankAccount.withdraw(500.0);
+        bankAccount.withdraw(42345);
         System.out.println("\n" + bankAccount);
-        // bankAccount.withdraw(501.0); // throws IllegalArgumentException (amount exceeds withdraw limit)
-        // bankAccount.withdraw(400.0); // throws IllegalArgumentException (amount exceeds balance)
+        // bankAccount.withdraw(50100); // throws IllegalArgumentException (amount exceeds withdraw limit)
+        // bankAccount.withdraw(40000); // throws IllegalArgumentException (amount exceeds balance)
     }
 }
