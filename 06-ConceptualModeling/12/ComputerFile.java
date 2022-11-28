@@ -8,15 +8,6 @@ public class ComputerFile {
     private int size;
     private String content;
 
-    public ComputerFile(String name, String type, Date creationDate, Date lastModifiedDate, int size, String content) {
-        this.name = name;
-        this.type = type;
-        this.creationDate = creationDate;
-        this.lastModifiedDate = lastModifiedDate;
-        this.size = size;
-        this.content = content;
-    }
-
     public String getName() {
         return name;
     }
@@ -73,5 +64,14 @@ public class ComputerFile {
                 "\nLast modified date: " + lastModifiedDate +
                 "\nSize: " + size +
                 "\nContent: " + content;
+    }
+
+    public ComputerFile(String name, String type, Date creationDate, Date lastModifiedDate, int size, String content) {
+        this.setName(name);
+        this.setType(type);
+        this.setCreationDate(creationDate);
+        this.setLastModifiedDate(lastModifiedDate);
+        this.setSize(size);
+        this.setContent(content);
     }
 }

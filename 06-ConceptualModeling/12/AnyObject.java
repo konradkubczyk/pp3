@@ -7,14 +7,6 @@ public class AnyObject {
     private String description;
     private boolean isPhisical;
 
-    public AnyObject(String name, String owner, Date creationDate, String description, boolean isPhisical) {
-        this.name = name;
-        this.owner = owner;
-        this.creationDate = creationDate;
-        this.description = description;
-        this.isPhisical = isPhisical;
-    }
-
     public String getName() {
         return name;
     }
@@ -62,5 +54,13 @@ public class AnyObject {
                 "\nCreation date: " + creationDate +
                 "\nDescription: " + description +
                 "\nIs phisical: " + isPhisical;
+    }
+
+    public AnyObject(String name, String owner, Date creationDate, String description, boolean isPhisical) {
+        this.setName(name);
+        this.setOwner(owner);
+        this.setCreationDate(creationDate);
+        this.setDescription(description);
+        this.setPhisical(isPhisical);
     }
 }
