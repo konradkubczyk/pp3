@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ShoppingList {
     class Item {
@@ -106,5 +107,27 @@ public class ShoppingList {
         System.out.println();
         shoppingList.removeItem("Chocolate");
         System.out.println(shoppingList);
+        System.out.println();
+
+        System.out.println("Creating custom shopping list...");
+        shoppingList = new ShoppingList(new ArrayList<Item>());
+        // Allow user to input items from console
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.print("Enter item name (empty to finish): ");
+            String name = scanner.nextLine();
+            if (name.trim().length() == 0) {
+                break;
+            }
+            System.out.print("Enter item quantity: ");
+            int quantity = Integer.parseInt(scanner.nextLine());
+            shoppingList.addItem(name, quantity);
+        }
+        scanner.close();
+
+        System.out.println();
+        System.out.println(shoppingList);
+        System.out.println();
+        System.out.println("Number of products: " + shoppingList.getProductCount());
     }
 }
