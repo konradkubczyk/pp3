@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class Book {
-    public static String[] genres = { "crime", "drama", "fantasy", "science fiction" };
+    private static String[] genres = { "crime", "drama", "fantasy", "science fiction" };
     private String title;
     private String author;
     private String genre;
