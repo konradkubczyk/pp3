@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Book {
     public static String[] genres = { "crime", "drama", "fantasy", "science fiction" };
     private String title;
@@ -38,7 +40,11 @@ public class Book {
     }
 
     public void setGenre(String genre) {
-        this.genre = genre;
+        if (Arrays.asList(genres).contains(genre)) {
+            this.genre = genre;
+        } else {
+            throw new IllegalArgumentException("Invalid genre");
+        }
     }
 
     public int getPages() {
@@ -81,17 +87,6 @@ public class Book {
         this.description = description;
     }
 
-    public Book(String title, String author, String genre, int pages, int publicationYear, String publisher, String isbn, String description) {
-        this.title = title;
-        this.author = author;
-        this.genre = genre;
-        this.pages = pages;
-        this.publicationYear = publicationYear;
-        this.publisher = publisher;
-        this.isbn = isbn;
-        this.description = description;
-    }
-
     public String toString() {
         return "Book details:" +
                 "\nTitle: " + title +
@@ -102,5 +97,16 @@ public class Book {
                 "\nPublisher: " + publisher +
                 "\nISBN: " + isbn +
                 "\nDescription: " + description;
+    }
+
+    public Book(String title, String author, String genre, int pages, int publicationYear, String publisher, String isbn, String description) {
+        this.setTitle(title);
+        this.setAuthor(author);
+        this.setGenre(genre);
+        this.setPages(pages);
+        this.setPublicationYear(publicationYear);
+        this.setPublisher(publisher);
+        this.setIsbn(isbn);
+        this.setDescription(description);
     }
 }
