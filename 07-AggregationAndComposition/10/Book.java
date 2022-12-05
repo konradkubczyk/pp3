@@ -82,17 +82,18 @@ public class Book {
     }
 
     public String toString() {
-        return "\n- " + title +
-                "\n  - publicationYear: " + publicationYear +
-                "\n  - publisher: " + publisher +
-                "\n  - genre: " + genre +
-                "\n  - isbn: " + isbn +
-                "\n  - pages: " + pages +
-                "\n  - currentPage: " + currentPage +
-                "\n  - author:" + 
-                "\n    - name: " + author.getName() +
-                "\n    - surname: " + author.getSurname() +
-                "\n    - state: " + (author.isAlive() ? "alive" : "dead");
+        return "Book" +
+                "\n- title: " + title +
+                "\n- publicationYear: " + publicationYear +
+                "\n- publisher: " + publisher +
+                "\n- genre: " + genre +
+                "\n- isbn: " + isbn +
+                "\n- pages: " + pages +
+                "\n- currentPage: " + currentPage +
+                "\n- author:" + 
+                "\n  - name: " + author.getName() +
+                "\n  - surname: " + author.getSurname() +
+                "\n  - state: " + (author.isAlive() ? "alive" : "dead");
     }
 
     public void open(int page) {
