@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Book {
     private String title;
     private int publicationYear;
@@ -7,6 +9,7 @@ public class Book {
     private int pages;
     private int currentPage = 0;
     private Author author;
+    private ArrayList<Chapter> chapters;
 
     public String getTitle() {
         return title;
@@ -72,6 +75,14 @@ public class Book {
         this.author = author;
     }
 
+    public ArrayList<Chapter> getChapters() {
+        return chapters;
+    }
+
+    public void setChapters(ArrayList<Chapter> chapters) {
+        this.chapters = chapters;
+    }
+
     public Book(String title, int publicationYear, String genre, String isbn, int pages, Author author) {
         this.setTitle(title);
         this.setPublicationYear(publicationYear);
@@ -79,20 +90,26 @@ public class Book {
         this.setIsbn(isbn);
         this.setAuthor(author);
         this.setPages(pages);
+        this.setChapters(new ArrayList<Chapter>());
     }
 
     public String toString() {
-        return "\n- " + title +
-                "\n  - publicationYear: " + publicationYear +
-                "\n  - publisher: " + publisher +
-                "\n  - genre: " + genre +
-                "\n  - isbn: " + isbn +
-                "\n  - pages: " + pages +
-                "\n  - currentPage: " + currentPage +
-                "\n  - author:" + 
-                "\n    - name: " + author.getName() +
-                "\n    - surname: " + author.getSurname() +
-                "\n    - state: " + (author.isAlive() ? "alive" : "dead");
+        String string = "\n- " + title +
+                        "\n  - publicationYear: " + publicationYear +
+                        "\n  - publisher: " + publisher +
+                        "\n  - genre: " + genre +
+                        "\n  - isbn: " + isbn +
+                        "\n  - pages: " + pages +
+                        "\n  - currentPage: " + currentPage +
+                        "\n  - author:" + 
+                        "\n    - name: " + author.getName() +
+                        "\n    - surname: " + author.getSurname() +
+                        "\n    - state: " + (author.isAlive() ? "alive" : "dead") +
+                        "\n  - chapters: ";
+        for (Chapter chapter : chapters) {
+            string += "\n    - " + chapter.toString();
+        }
+        return string;
     }
 
     public void open(int page) {
@@ -124,5 +141,13 @@ public class Book {
             throw new IllegalStateException("You have reached the beginning of the book!");
         }
         currentPage--;
+    }
+
+    public void addChapter(Chapter chapter) {
+        chapters.add(chapter);
+    }
+
+    public void removeChapter(Chapter chapter) {
+        chapters.remove(chapter);
     }
 }
