@@ -1,21 +1,21 @@
 public class BookEbookAudiobookLibraryTest {
     public static void main(String[] args) {
         Book book1 = new Book("The Hobbit", "J.R.R. Tolkien");
-        Book book2 = new Book("The Lord of the Rings", "J.R.R. Tolkien");
-        Book book3 = new Book("The Silmarillion", "J.R.R. Tolkien");
+        Book book2 = new Book("Romeo and Juliet", "William Shakespeare");
+        Book book3 = new Book("The Wizard of Oz", "L. Frank Baum");
 
         Ebook ebook1 = new Ebook("The Hobbit", "J.R.R. Tolkien", "the-hobbit.epub");
-        Ebook ebook2 = new Ebook("The Lord of the Rings", "J.R.R. Tolkien", "the-lord-of-the-rings.epub");
-        Ebook ebook3 = new Ebook("The Silmarillion", "J.R.R. Tolkien", "the-silmarillion.epub");
+        Ebook ebook2 = new Ebook("Romeo and Juliet", "William Shakespeare", "romeo-and-juliet.epub");
+        Ebook ebook3 = new Ebook("The Wizard of Oz", "L. Frank Baum", "the-wizard-of-oz.epub");
 
         Audiobook audiobook1 = new Audiobook("The Hobbit", "J.R.R. Tolkien", 10, 30);
-        Audiobook audiobook2 = new Audiobook("The Lord of the Rings", "J.R.R. Tolkien", 20, 30);
-        Audiobook audiobook3 = new Audiobook("The Silmarillion", "J.R.R. Tolkien", 30, 30);
+        Audiobook audiobook2 = new Audiobook("Romeo and Juliet", "William Shakespeare", 5, 45);
+        Audiobook audiobook3 = new Audiobook("The Wizard of Oz", "L. Frank Baum", 7, 15);
 
         Library library = new Library();
         library.addBook(book1);
-        library.addBook(book2);
-        library.addBook(book3);
+        library.addBook(ebook2);
+        library.addBook(audiobook3);
 
         System.out.println("\nBooks:");
         book1.display();
