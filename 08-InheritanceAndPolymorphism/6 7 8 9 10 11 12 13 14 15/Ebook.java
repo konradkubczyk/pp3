@@ -9,7 +9,7 @@ public class Ebook extends Book {
         this.fileName = fileName;
     }
 
-    public Ebook(String title, String author, Publisher publisher, int yearOfPublication, String fileName) {
+    public Ebook(String title, Writer author, Publisher publisher, int yearOfPublication, String fileName) {
         super(title, author, publisher, yearOfPublication);
         this.setFileName(fileName);
     }

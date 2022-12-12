@@ -18,7 +18,7 @@ public class Audiobook extends Book {
         this.seconds = seconds;
     }
 
-    public Audiobook(String title, String author, Publisher publisher, int yearOfPublication, int minutes, int seconds) {
+    public Audiobook(String title, Writer author, Publisher publisher, int yearOfPublication, int minutes, int seconds) {
         super(title, author, publisher, yearOfPublication);
         this.setMinutes(minutes);
         this.setSeconds(seconds);
