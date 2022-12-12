@@ -23,4 +23,7 @@ public class Publisher {
         this.setCity(city);
     }
 
+    public String toString() {
+        return this.getName() + " from " + this.getCity();
+    }
 }
