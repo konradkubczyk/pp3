@@ -1,8 +1,5 @@
 # LibreOffice lockfiles
 .~lock.*
 
-# Test solutions
-Test/
-
 # VS Code
 .vscode/
