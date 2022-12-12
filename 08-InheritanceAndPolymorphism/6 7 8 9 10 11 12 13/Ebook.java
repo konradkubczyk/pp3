@@ -9,8 +9,8 @@ public class Ebook extends Book {
         this.fileName = fileName;
     }
 
-    public Ebook(String title, String author, Publisher publisher, String fileName) {
-        super(title, author, publisher);
+    public Ebook(String title, String author, Publisher publisher, int yearOfPublication, String fileName) {
+        super(title, author, publisher, yearOfPublication);
         this.setFileName(fileName);
     }
 
@@ -20,6 +20,6 @@ public class Ebook extends Book {
 
     // The following method is not necessary, but it is included to demonstrate the need for the attributes of the parent class to be protected, not private.    
     public void display() {
-        System.out.println(this.title + " by " + this.author + " published by " + this.publisher + " (" + this.fileName + ")");
+        System.out.println(this.title + " by " + this.author + " published by " + this.publisher + " in " + this.yearOfPublication + " (" + this.fileName + ")");
     }
 }

@@ -18,8 +18,8 @@ public class Audiobook extends Book {
         this.seconds = seconds;
     }
 
-    public Audiobook(String title, String author, Publisher publisher, int minutes, int seconds) {
-        super(title, author, publisher);
+    public Audiobook(String title, String author, Publisher publisher, int yearOfPublication, int minutes, int seconds) {
+        super(title, author, publisher, yearOfPublication);
         this.setMinutes(minutes);
         this.setSeconds(seconds);
     }
@@ -30,6 +30,6 @@ public class Audiobook extends Book {
 
     // The following method is not necessary, but it is included to demonstrate the need for the attributes of the parent class to be protected, not private.    
     public void display() {
-        System.out.println(this.title + " by " + this.author + " published by " + this.publisher + " (" + this.minutes + ":" + this.seconds + ")");
+        System.out.println(this.title + " by " + this.author + " published by " + this.publisher + " in " + this.yearOfPublication + " (" + this.minutes + ":" + this.seconds + ")");
     }
 }

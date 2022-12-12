@@ -2,6 +2,7 @@ public class Book {
     protected String title;
     protected String author;
     protected Publisher publisher;
+    protected int yearOfPublication;
 
     public String getTitle() {
         return title;
@@ -27,14 +28,23 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public Book(String title, String author, Publisher publisher) {
+    public int getYearOfPublication() {
+        return yearOfPublication;
+    }
+
+    public void setYearOfPublication(int yearOfPublication) {
+        this.yearOfPublication = yearOfPublication;
+    }
+
+    public Book(String title, String author, Publisher publisher, int yearOfPublication) {
         this.setTitle(title);
         this.setAuthor(author);
         this.setPublisher(publisher);
+        this.setYearOfPublication(yearOfPublication);
     }
 
     public String toString() {
-        return this.getTitle() + " by " + this.getAuthor() + " published by " + this.publisher;
+        return this.getTitle() + " by " + this.getAuthor() + " published by " + this.getPublisher()  + " in " + this.getYearOfPublication();
     }
 
     public void display() {
