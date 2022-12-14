@@ -11,7 +11,7 @@ public class Numbers {
         numbers.add(e);
     }
 
-    public Boolean different() {
+    public boolean different() {
         for (int i = 0; i < numbers.size(); i++) {
             for (int j = 0; j < numbers.size(); j++) {
                 if (numbers.get(i) == numbers.get(j) && i != j) {

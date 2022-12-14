@@ -11,7 +11,7 @@ public class Arrays {
         return doubleDigitCount;
     }
 
-    public static Boolean arr(int[] arr1, int[] arr2) {
+    public static boolean arr(int[] arr1, int[] arr2) {
         return countDoubleDigits(arr1) == countDoubleDigits(arr2);
     }
 }
