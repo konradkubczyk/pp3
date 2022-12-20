@@ -18,14 +18,14 @@ public class Email extends Message {
     }
 
     public Email(String subject, String recipientAddress) {
-        this.subject = subject;
-        this.recipientAddress = recipientAddress;
+        this.setSubject(subject);
+        this.setRecipientAddress(recipientAddress);
     }
 
     public Email(String text, String subject, String recipientAddress) {
         super(text);
-        this.subject = subject;
-        this.recipientAddress = recipientAddress;
+        this.setSubject(subject);;
+        this.setRecipientAddress(recipientAddress);
     }
 
     public void send() {
