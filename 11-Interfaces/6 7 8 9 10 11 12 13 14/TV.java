@@ -3,6 +3,7 @@ public class TV implements CanOnOff, CanChangeChannel, CanChangeVolume {
     private boolean isOn = false;
     private int channelNumber = 1;
     private int volumeLevel = 1;
+    private String[] channels = new String[99];
 
     public boolean isOn() {
         return isOn;
@@ -29,6 +30,18 @@ public class TV implements CanOnOff, CanChangeChannel, CanChangeVolume {
     public void setVolumeLevel(int volumeLevel) {
         if (isOn() && volumeLevel >= 1 && volumeLevel <= 10) {
             this.volumeLevel = volumeLevel;
+        }
+    }
+
+    public String[] getChannels() {
+        return channels;
+    }
+
+    public void setChannels(String[] channels) {
+        for (int i = 0; i < channels.length; i++) {
+            if (i < this.channels.length) {
+                this.channels[i] = channels[i];
+            }
         }
     }
 
@@ -88,7 +101,7 @@ public class TV implements CanOnOff, CanChangeChannel, CanChangeVolume {
     @Override
     public String toString() {
         if (isOn()) {
-            return "TV is on, channel " + getChannelNumber() + ", volume " + getVolumeLevel();
+            return "TV is on, channel " + getChannelNumber() + (getChannels()[getChannelNumber() - 1] != null ? (" (" + getChannels()[getChannelNumber() - 1] + ")") : " (unknown)") + ", volume " + getVolumeLevel();
         } else {
             return "TV is off";
         }
@@ -96,5 +109,17 @@ public class TV implements CanOnOff, CanChangeChannel, CanChangeVolume {
 
     public void printStatus() {
         System.out.println(toString());
+    }
+
+    public void printChannels() {
+        if (!isOn) {
+            printStatus();
+            return;
+        }
+        for (int i = 0; i < getChannels().length; i++) {
+            if (getChannels()[i] != null) {
+                System.out.println((i + 1) + ": " + getChannels()[i]);
+            }
+        }
     }
 }
